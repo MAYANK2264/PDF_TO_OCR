@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to OCR Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>PDF to OCR Converter</h1>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <input type="file" name="pdf_file" accept=".pdf" required>
+            <button type="submit">Convert to Text</button>
+        </form>
+        {% if ocr_text %}
+        <textarea readonly>{{ ocr_text }}</textarea>
+        {% endif %}
+    </div>
+</body>
+</html>
